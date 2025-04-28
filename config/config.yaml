@@ -1,0 +1,65 @@
+# 数据源配置
+sources:
+  rss:
+    - url: "https://www.solidot.org/index.rss"
+      retry:
+        count: 3
+        interval: 5  # 秒
+      timeout: 30    # 秒
+      proxy_url: "http://127.0.0.1:7890"  # 可选，使用HTTP代理
+    - url: "https://rss.panewslab.com/zh/tvsq/rss"
+      retry:
+        count: 3
+        interval: 5  # 秒
+      timeout: 30    # 秒
+      proxy_url: "http://127.0.0.1:7890"  # 可选，使用HTTP代理
+    - url: "https://www.8btc.com/feed"
+      retry:
+        count: 3
+        interval: 5  # 秒
+      timeout: 30    # 秒
+      proxy_url: "http://127.0.0.1:7890"  # 可选，使用HTTP代理
+    - url: "https://www.chaincatcher.com/feed"
+      retry:
+        count: 3
+        interval: 5  # 秒
+      timeout: 30    # 秒
+      proxy_url: "http://127.0.0.1:7890"  # 可选，使用HTTP代理
+
+# Telegram配置
+telegram:
+  enabled: true
+  bot:
+    token: "7597062287:AAFPJzK4aYK-_thgs9KfHW8yF16slkRfoVg"
+    chat_ids:
+      - "-1002531303116"  # 修正chat ID格式，确保有-100前缀
+  retry:
+    count: 3
+    interval: 5  # 秒
+  timeout: 30    # 秒
+  proxy_url: "http://127.0.0.1:7890"  # 可选，使用HTTP代理
+
+# AI分析配置
+ai:
+  enabled: true
+  provider: "deepseek"
+  model: "deepseek-chat"
+  api_key: "sk-e7b0af9e56504646a3453ec34ac00c61"
+  params:
+    max_tokens: 1000
+    temperature: 0.5
+  timeout: 120    # 秒
+  retry:
+    count: 5
+    interval: 10
+  proxy_url: "http://127.0.0.1:7890"
+
+# 缓存配置
+cache:
+  type: "memory"
+  ttl: 600     # 秒，调整为10分钟
+
+# 全局配置
+app:
+  fetch_interval: 300  # 秒，5分钟
+  log_level: "debug" 

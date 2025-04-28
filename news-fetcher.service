@@ -1,0 +1,14 @@
+[Unit]
+Description=News Fetcher Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/news-fetcher
+ExecStart=/home/ubuntu/news-fetcher/news-fetcher
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

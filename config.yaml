@@ -1,0 +1,51 @@
+# 数据源配置
+sources:
+  api:
+    - url: "https://api.theblockbeats.news/v1/open-api/open-flash"
+      params:
+        page: 1
+        size: 10
+        type: "push"
+        lang: "cn"
+      retry:
+        count: 3
+        interval: 5  # 秒
+      timeout: 30    # 秒
+
+# Telegram配置
+telegram:
+  enabled: true
+  bot:
+    token: "7597062287:AAFPJzK4aYK-_thgs9KfHW8yF16slkRfoVg"
+    chat_ids:
+      - "-1002531303116"
+  retry:
+    count: 3
+    interval: 5  # 秒
+  timeout: 30    # 秒
+  proxy_url: "http://127.0.0.1:7890"  # 使用HTTP代理
+
+# AI分析配置
+ai:
+  enabled: true  # 开启AI分析
+  provider: "deepseek"
+  model: "deepseek-chat"
+  api_key: "sk-e7b0af9e56504646a3453ec34ac00c61"
+  params:
+    max_tokens: 1000
+    temperature: 0.5
+  timeout: 120    # 秒
+  retry:
+    count: 5     # 重试次数
+    interval: 10  # 秒
+  proxy_url: "http://127.0.0.1:7890"  # 代理配置
+
+# 缓存配置
+cache:
+  type: "memory"
+  ttl: 3600     # 秒
+
+# 全局配置
+app:
+  fetch_interval: 60  # 秒
+  log_level: "debug"  # debug级别
